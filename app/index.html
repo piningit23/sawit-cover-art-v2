@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunset Keys Cover Studio: 9-layout multi-panel GTA-style cover maker</title>
+<meta name="description" content="Turn any photo and caption into multi-panel Vice City style cover art. 9 layouts, 8 grades, poster lettering, PNG export in 3 sizes. Offline, nothing uploaded.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div><span class="brand-mark">SK</span><span class="brand-name">Sunset Keys Cover Studio</span></div>
+  <p class="tagline">Turn any photo into multi-panel sunset cover art. Offline, nothing leaves this browser.</p>
+</header>
+<main class="studio">
+  <section class="editor" aria-label="Cover editor">
+    <div class="group" aria-label="Photos">
+      <h2 class="group-title">Photos</h2>
+      <p class="hint">Add up to four photos from your machine. Pick a panel below to crop each one.</p>
+      <div class="photo-slots" id="photoSlots"></div>
+      <div class="row">
+        <button type="button" id="loadSamples" class="btn">Load sample photos</button>
+        <button type="button" id="fillAll" class="btn">Fill every panel with photo 1</button>
+      </div>
+    </div>
+
+    <div class="group" aria-label="Layout and grade">
+      <h2 class="group-title">Layout and grade</h2>
+      <p class="hint">Nine layouts, eight Vice City grades. Grades keep faces readable: light tint, lifted shadows.</p>
+      <p class="field-label">Layout</p>
+      <div class="chips" id="layoutChips" role="group" aria-label="Layout"></div>
+      <p class="field-label">Colour grade</p>
+      <div class="chips" id="gradeChips" role="group" aria-label="Colour grade"></div>
+      <label class="field"><input type="checkbox" id="grainChk" checked> Film grain and vignette</label>
+      <p class="field-label">Silhouette stickers</p>
+      <div class="chips" id="stickerChips" role="group" aria-label="Silhouette stickers"></div>
+    </div>
+
+    <div class="group" aria-label="Caption and lettering">
+      <h2 class="group-title">Caption and lettering</h2>
+      <label class="field">Title
+        <input type="text" id="titleIn" value="SUNSET KEYS" maxlength="24">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subIn" value="Neon Nights on the Keys" maxlength="48">
+      </label>
+      <p class="field-label">Lettering style</p>
+      <div class="chips" id="letterStyleChips" role="group" aria-label="Lettering style"></div>
+      <p class="field-label">Title colour</p>
+      <div class="chips" id="titleColorChips" role="group" aria-label="Title colour"></div>
+      <label class="field">Title size <span class="val" id="titleSizeVal">96</span>
+        <input type="range" id="titleSize" min="48" max="150" value="96">
+      </label>
+      <label class="field">Letter spacing <span class="val" id="letterSpaceVal">4</span>
+        <input type="range" id="letterSpace" min="0" max="18" value="4">
+      </label>
+      <p class="field-label">Tagline presets</p>
+      <div class="chips" id="taglineChips" role="group" aria-label="Tagline presets"></div>
+    </div>
+
+    <div class="group" aria-label="Panels">
+      <h2 class="group-title">Panels</h2>
+      <p class="hint">Pick a panel, then choose its photo, its filter, its zoom and its position.</p>
+      <div class="panel-list" id="panelList"></div>
+    </div>
+
+    <div class="group" aria-label="Reset">
+      <h2 class="group-title">Start over</h2>
+      <button type="button" id="resetBtn" class="btn danger">Reset cover</button>
+    </div>
+  </section>
+
+  <section class="preview" aria-label="Live cover preview">
+    <div class="preview-frame">
+      <canvas id="coverCanvas" width="1080" height="1080" aria-label="Live cover preview"></canvas>
+    </div>
+    <p class="hint">Live preview. Export writes an exact size PNG, never stretched.</p>
+    <div class="exports" role="group" aria-label="Export PNG">
+      <button type="button" class="btn primary" data-export="1080x1080">Export 1080 by 1080</button>
+      <button type="button" class="btn primary" data-export="1080x1350">Export 1080 by 1350</button>
+      <button type="button" class="btn primary" data-export="1920x1080">Export 1920 by 1080</button>
+    </div>
+    <p class="status" id="status" role="status"></p>
+    <p class="empty-note" id="emptyNote">No photo yet. Load the samples or add your own photo to see the cover come alive.</p>
+  </section>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
