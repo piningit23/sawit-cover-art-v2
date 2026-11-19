@@ -6,6 +6,13 @@
 
 Sunset Keys Cover Studio — 9-layout multi-panel GTA-style cover maker, 8 Vice City grades, poster-formula lettering, PNG export in 3 sizes.
 
+## Features
+
+- 9 layouts
+- 8 grades
+- Poster-formula lettering
+- PNG export in 3 sizes
+
 ## Run it
 
 ```sh
